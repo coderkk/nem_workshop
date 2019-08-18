@@ -1,0 +1,96 @@
+<div class="py-2">
+    <div class="col-md-12">
+        <form action="" method="POST" class="col-md-12">
+            <div class="row">
+                <p class="lead">Prepare Transaction</p>
+                <pre class="alert alert-primary col-md-12" role="alert"><code>
+                    // Prepare Transaction 
+                    $transaction = $nemPhp->prepareTransaction(
+                        $amount, // How much XEM to send 
+                        $fee, // Put higher fee if you want, otherwise leave it zero so minimum fee will be taken off
+                        $receiver, //adress where to send
+                        $mosaics = null,   //mosaics
+                        $message = null, // message
+                        $secure = false // secure message
+                    );
+                </code></pre>
+
+                <p class="lead">Send Transaction</p>
+                <pre class="alert alert-primary col-md-12" role="alert"><code>
+                    // Commit transaction to the local network
+                    $comminTrx = $nemPhp->commitTransaction();
+
+                    or
+
+                    // Announce transaction
+                    $announceTrx = $nemPhp->announceTransaction(); // you shoud almost
+                    immidiately hear 'dink' sound from you wallet
+                </code></pre>
+            </div>
+
+            <div class="my-3 py-3 bg-light col-md-12">
+                <div class="form-group row">
+                    <label for="receiver" class="col-sm-2 col-form-label">Receiver Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="receiver" value="{{ $_POST['receiver'] ? $_POST['receiver'] : $env['WALLET_DOC_ADDRESS'] }}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="amount" class="col-sm-2 col-form-label">Amount</label>
+                    <div class="col-sm-10">
+                        <input type="number"  class="form-control" name="amount" step="any" value="{{ $_POST['amount'] ? $_POST['amount'] : 0 }}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="message" class="col-sm-2 col-form-label">Message</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="message" value="{{ $_POST['message'] }}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">Option</div>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sendTransaction" name="sendTransaction" value="1" {{ $_POST["sendTransaction"] ? "checked" : "" }}>
+                            <label class="form-check-label" for="sendTransaction">
+                                Send Transaction
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" name="action" value="send_xem">Run</button>
+            </div>
+            <div class="display-6">
+                Reference :
+                <ul>
+                    <li>
+                        <a href="https://nemproject.github.io/#transaction-objects" target="_blank">Transaction Objects</a>
+                    </li>
+                    <li>
+                        <a href="https://nemproject.github.io/#requestAnnounce" target="_blank">RequestAnnounce</a>
+                    </li>
+                    <li>
+                        <a href="https://nemproject.github.io/#requestPrepareAnnounce" target="_blank">RequestPrepareAnnounce</a>
+                    </li>
+                    <li>
+                        <a href="https://nemproject.github.io/#nemRequestResult" target="_blank">https://nemproject.github.io/#nemRequestResult</a>
+                    </li>
+                </ul>
+            </div>
+        </form>
+        <check if="{{ @transaction != false}}">
+            <div class="row">
+                <pre class="alert alert-success col-md-12" role="alert">
+                    {{ print_r(@transaction, true) }}
+                </pre>
+            </div>
+        </check>
+        <check if="{{ @result != false}}">
+            <div class="row">
+                <pre class="alert alert-success col-md-12" role="alert">
+                    {{ print_r(@result, true) }}
+                </pre>
+            </div>
+        </check>
+    </div>
+</div>

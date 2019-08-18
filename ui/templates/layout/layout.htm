@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="<?php echo $ENCODING; ?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="NEM Workshop">
+		<meta name="author" content="yhlai">
+		<title>NEM Workshop</title>
+
+		<base href="<?php echo $SCHEME.'://'.$HOST.':'.$PORT.$BASE.'/'; ?>" />
+
+		<!-- Bootstrap core CSS -->
+		<link rel="stylesheet" href="{{@BASE}}/ui/css/bootstrap.min.css" type="text/css" />
+		<link rel="stylesheet" href="{{@BASE}}/ui/css/style.css" type="text/css" />
+	</head>
+	<body>
+		<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+			<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+				<strong>NEM Workshop</strong>
+			</a>
+		</nav>
+		<div class="container-fluid">
+  			<div class="row">
+				<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+					<div class="sidebar-sticky">
+						<ul class="nav flex-column">
+							<li class="nav-item">
+								<a class="nav-link active" href="/">
+									<span data-feather="home"></span>
+									Home <span class="sr-only">(current)</span>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task1">
+									<span data-feather="check-square"></span>
+									1. Requirement
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task2">
+									<span data-feather="clipboard"></span>
+									2. Config and Heartbeat
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task3">
+									<span data-feather="clipboard"></span>
+									3. Config and Status
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task4">
+									<span data-feather="clipboard"></span>
+									4. Account Information
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task5">
+									<span data-feather="clipboard"></span>
+									5. All Transfer Transactions 
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task6">
+									<span data-feather="clipboard"></span>
+									6. Incoming Transactions
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task7">
+									<span data-feather="clipboard"></span>
+									7. Outgoing Transactions
+								</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" href="/task8">
+									<span data-feather="clipboard"></span>
+									8. Unconfirm Transactions
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task9">
+									<span data-feather="clipboard"></span>
+									9. Get Transaction Information
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/task10">
+									<span data-feather="clipboard"></span>
+									10. Send XEM
+								</a>
+							</li>
+						</ul>
+
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+							<span>Document Management</span>
+						</h6>
+						<ul class="nav flex-column mb-2">
+							<li class="nav-item">
+								<a class="nav-link" href="/documents">
+									<span data-feather="file-text"></span>
+									Document Listing
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="/documents/verifier">
+									<span data-feather="check-circle"></span>
+									Document Verifier
+								</a>
+							</li>
+						</ul>
+
+						<h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+							<span>Useful Link</span>
+						</h6>
+						<ul class="nav flex-column mb-2">
+							<li class="nav-item">
+								<a class="nav-link" href="https://nem.io">
+									<span data-feather="link"></span>
+									Nem
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://nemproject.github.io/">
+									<span data-feather="link"></span>
+									NEM NIS API Documentation
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://docs.nem.io/en/nis-wrappers">
+									<span data-feather="link"></span>
+									NEM NIS Wrappers
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="http://testnet-explorer.nemtool.com/#/">
+									<span data-feather="link"></span>
+									NEM Testnet Explorer
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://nemtech.github.io/nem2-workshop-document-notarization/">
+									<span data-feather="link"></span>
+									Notarization of documents
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://fatfreeframework.com">
+									<span data-feather="link"></span>
+									Fat-free framework
+								</a>
+							</li>
+							
+						</ul>
+					</div>
+				</nav>
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+					<check if="{{ @page_title != '' }}">
+						<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+							<h1 class="h2">{{ @page_title }}</h1>
+							<check if="{{ @page_subtitle != '' }}">
+								<p class="lead text-muted">{{ @page_subtitle }}</p>
+							</check>
+						</div>
+					</check>
+
+					<include href="{{ @content }}" />
+
+					<footer>
+						<p>&copy; Nem workshop</p>
+					</footer>
+				</main>
+			</div>
+		</div>
+		<script type="text/javascript" src="{{@BASE}}/ui/js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="{{@BASE}}/ui/js/popper.min.js"></script>
+		<script type="text/javascript" src="{{@BASE}}/ui/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="{{@BASE}}/ui/js/feather.min.js"></script>
+		<script type="text/javascript">
+			/* globals feather:false */
+			(function () {
+				'use strict'
+				feather.replace()
+			}());
+		</script>
+	</body>
+</html>

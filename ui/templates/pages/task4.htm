@@ -1,0 +1,45 @@
+<div class="py-2">
+    <div class="col-md-12">
+        <form action="" method="POST" class="col-md-12">
+            <div class="row">
+                <p class="lead">Request account information</p>
+                <pre class="alert alert-primary col-md-12" role="alert"><code>
+                    // request account data
+                    <button type="submit" class="btn btn-link" name="action" value="accountGet">$account = $nemPhp->accountGet();</button>
+
+                    // same as above, you can put someone's public key to gind out his address and how rich he is
+                    <button type="submit" class="btn btn-link" name="action" value="accountGetFromPublicKey">$account = $nemPhp->accountGetFromPublicKey($public = null);</button>
+
+                    // Requesting the original account data for a delegate account
+                    <button type="submit" class="btn btn-link" name="action" value="accountGetForwarded">$account = $nemPhp->accountGetForwarded();</button>
+
+                    // short account status
+                    <button type="submit" class="btn btn-link" name="action" value="accountStatus">$account = $nemPhp->accountStatus();</button>
+                </code></pre>
+            </div>
+            <div class="display-6">
+                Reference :  
+                <ul>
+                    <li><a href="https://nemproject.github.io/#requesting-the-account-data" target="_blank">Requesting the account data</a></li>
+                    <li><a href="https://nemproject.github.io/#appendix-B:-NIS-errors" target="_blank">Appendix B: NIS Errors</a></li>
+                </ul>
+            </div>
+            <div class="my-3 py-3 bg-light col-md-12">
+                <div class="form-group row">
+                    <label for="nem_public_key" class="col-sm-2 col-form-label">Public Key</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nem_public_key" value="{{ $_POST['nem_public_key'] }}">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" name="action" value="accountGetFromPublicKey">Run</button>
+            </div>
+        </form>
+        <check if="{{ @result != false}}">
+            <div class="row">
+                <pre class="alert alert-success col-md-12" role="alert">{{ print_r(@result, true) }}</pre>
+            </div>
+        </check>
+	</div>
+</div>
+
+

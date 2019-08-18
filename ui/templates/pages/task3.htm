@@ -1,0 +1,43 @@
+<div class="py-2">
+    <div class="col-md-12">
+        <div class="row">
+            <p class="lead">Configuration and check status</p>
+            <pre class="alert alert-primary col-md-12" role="alert"><code>
+                require_once 'nem-php/nem-php.php';
+                
+                $config = [
+                    'net'               => 'testnet', // mainnet or testnet or mijin
+                    'nis_address'       => 'http://127.0.0.1',
+                    'private'           => 'xxx', //put your private key from nem wallet
+                    'public'            => 'xxx', //put your public key from nem wallet
+                    'security_check'    => true //leave it true if you are not sure
+                ];
+
+                $nemPhp = new NemPhp($config);  //Get library
+
+                $heartbeat = $nemPhp->status(); //Check if it's working
+                print_r($heartbeat); // print
+
+            </code></pre>
+        </div>
+        <div class="display-6">
+            Reference :  
+            <ul>
+                <li><a href="https://nemproject.github.io/#status-request" target="_blank">Status Request</a></li>
+                <li><a href="https://nemproject.github.io/#nemRequestResult" target="_blank">https://nemproject.github.io/#nemRequestResult</a></li>
+            </ul>
+        </div>
+        <div class="row py-3">
+            <form action="" method="post">
+                <button type="submit" class="btn btn-primary">Run</button>
+            </form>
+        </div>
+        <check if="{{ @status != false}}">
+            <div class="row">
+                <pre class="alert alert-success col-md-12" role="alert">{{ print_r(@status, true) }}</pre>
+            </div>
+        </check>
+	</div>
+</div>
+
+

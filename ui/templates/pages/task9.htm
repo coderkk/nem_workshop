@@ -1,0 +1,50 @@
+<div class="py-2">
+    <div class="col-md-12">
+        <form action="" method="POST" class="col-md-12">
+            <div class="row">
+                <p class="lead">Get transaction</p>
+                <pre class="alert alert-primary col-md-12" role="alert"><code>
+                    // Get transaction 
+                    $transactions = $nemPhp->transactionGet(
+                        hash,
+                        decode = true   // decode message
+                    );
+                </code></pre>
+            </div>
+            <div class="my-3 py-3 bg-light col-md-12">
+                <div class="form-group row">
+                    <label for="nem_hash" class="col-sm-2 col-form-label">Hash</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nem_hash" value="{{ ($_POST['nem_hash']) ? $_POST['nem_hash'] : 'fd1a97070d9402276ef4555443f5d7b359b598729c05145b5b874fe18ef8692a' }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2">Option</div>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="decodeMessage" name="decodeMessage" value="1" {{ ($_POST['decodeMessage']) ? 'checked' : '' }}>
+                            <label class="form-check-label" for="decodeMessage">
+                                Decode Message
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" name="action" value="transation_all">Run</button>
+            </div>
+            <div class="display-6">
+                Reference :  
+                <ul>
+                    <li><a href="https://nemproject.github.io/#status-request" target="_blank">Status Request</a></li>
+                    <li><a href="https://nemproject.github.io/#nemRequestResult" target="_blank">https://nemproject.github.io/#nemRequestResult</a></li>
+                </ul>
+            </div>
+        </form>
+        <check if="{{ @result != false}}">
+            <div class="row">
+                <pre class="alert alert-success col-md-12" role="alert">{{ print_r(@result, true) }}</pre>
+            </div>
+        </check>
+	</div>
+</div>
+
+

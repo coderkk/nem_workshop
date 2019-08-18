@@ -1,0 +1,52 @@
+<div class="py-2">
+    <div class="col-md-12">
+        <form action="" method="POST" class="col-md-12">
+            <div class="row">
+                <p class="lead">Get 25 most recent outgoing transactions</p>
+                <pre class="alert alert-primary col-md-12" role="alert"><code>
+                    // Get 25 most recent transactions 
+                    $transactions = $nemPhp->accountTransfersOutgoing(
+                        null, //address - if ommitted, then address is taken from public key
+                        null, //Get 25 transactions that appeared directly before the transaction with paricular id
+                        null  //Get 25 transactions that appeared directly before the transaction with paricular hash
+                    );
+                </code></pre>
+            </div>
+            <div class="my-3 py-3 bg-light col-md-12">
+                <div class="form-group row">
+                    <label for="nem_address" class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nem_address" value="{{ $_POST['nem_address'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nem_hash" class="col-sm-2 col-form-label">Hash</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nem_hash" value="{{ $_POST['nem_hash'] }}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="nem_id" class="col-sm-2 col-form-label">ID</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nem_id" value="{{ $_POST['nem_id'] }}">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" name="action" value="transation_all">Run</button>
+            </div>
+            <div class="display-6">
+                Reference :  
+                <ul>
+                    <li><a href="https://nemproject.github.io/#requesting-transaction-data-for-an-account" target="_blank">Requesting transaction data for an account</a></li>
+                    <li><a href="https://nemproject.github.io/#transactionMetaDataPair" target="_blank">https://nemproject.github.io/#transactionMetaDataPair</a></li>
+                </ul>
+            </div>
+        </form>
+        <check if="{{ @result != false}}">
+            <div class="row">
+                <pre class="alert alert-success col-md-12" role="alert">{{ print_r(@result, true) }}</pre>
+            </div>
+        </check>
+	</div>
+</div>
+
+

@@ -1,0 +1,61 @@
+<div class="py-2">
+        <div class="col-md-12">
+            <check if="{{ @message }}">
+                <div class="row">
+                    <div class="alert alert-danger col-md-12" role="alert">{{ @message }}</div>
+                </div>
+            </check>
+            <form action="{{@BASE}}/documents/verify" method="POST" enctype="multipart/form-data" class="bg-light p-3">
+                <div class="form-group row">
+                    <label for="fileupload" class="col-sm-2 col-form-label">File upload</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control-file" name="fileupload" id="fileupload">
+                    </div>
+                </div>
+                <!-- TODO: Insert nem hash input -->
+                <div class="form-group row">
+                    <label for="nem_hash" class="col-sm-2 col-form-label">NEM Hash</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="nem_hash" id="nem_hash">
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary" value="Verify" />
+            </form>
+            <check if="{{ @documents }}">
+                <div class="row py-3">
+                    <repeat group="{{ @documents }}" value="{{ @document }}">
+                    <div class="alert alert-success col-md-12" role="alert">
+                        <div class="row">
+                            <div class="col-md-2">Name</div>
+                            <div class="col-md-10">{{ @document.name }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Description</div>
+                            <div class="col-md-10">{{ @document.description }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Filename</div>
+                            <div class="col-md-10">{{ @document.filename }}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Fingerprint</div>
+                            <div class="col-md-10">{{ @document.fingerprint }}</div>
+                        </div>
+                        <!-- TODO: Print nem hash -->
+                        <div class="row">
+                            <div class="col-md-2">NEM hash</div>
+                            <div class="col-md-10">
+                                <a href="http://testnet-explorer.nemtool.com/#/s_tx?hash={{ @document.nem_hash }}" target="_blank">{{ @document.nem_hash }}</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">Upload</div>
+                            <div class="col-md-10">{{ @document.created_at }}</div>
+                        </div>
+                    </div>
+                    </repeat>
+                </div>
+            </check>
+        </div>
+    </div>
+    

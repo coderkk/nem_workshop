@@ -1,0 +1,29 @@
+<div class="py-2">
+    <div class="col-md-12">
+        <div class="text-right py-3">
+            <a href="/documents/create" class="btn btn-primary">Create Document</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Document name</th>
+                        <th>Filename</th>
+                        <th>Checksum</th>
+                        <th>Upload Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <repeat group="{{ @documents }}" value="{{ @document }}">
+                    <tr>
+                        <td>{{ @document.name }}</td>
+                        <td>{{ @document.filename }}</td>
+                        <td>{{ @document.fingerprint }}</td>
+                        <td>{{ @document.created_at }}</td>
+                    </tr>
+                    </repeat>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
