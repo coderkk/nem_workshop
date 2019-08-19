@@ -11,7 +11,6 @@ function calcFeeMessage($message) {
     }
 }
 function int2binary($int) {
-    // return serializeInt($int);
     return pack("V", $int);
 }
 function long2binary($longlong) {
@@ -31,21 +30,4 @@ function getVersion($network = "TESTNET") {
     } else {
         return 0x98000001;
     }
-}
-
-function serializeInt(int $number = null)
-{
-    if (null === $number) {
-        return serializeInt(0xffffffff);
-    }
-    else {
-        $uint8 = [
-            $number         & 0xff,
-            ($number >> 8)  & 0xff,
-            ($number >> 16) & 0xff,
-            ($number >> 24) & 0xff
-        ];
-    }
-
-    return $uint8;
 }
