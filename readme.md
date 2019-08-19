@@ -1,5 +1,8 @@
 # NEM Workshop
 
+## Clone the repository
+git clone https://github.com/coderkk/nem_workshop.git
+
 ## Before you start the server
 1. Copy ```.env.exmaple.ini``` to ```.env.ini```
 2. Copy ```/app/db/blank.sqlite``` to ```/app/db/database.sqlite```
