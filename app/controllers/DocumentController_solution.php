@@ -71,9 +71,9 @@ class DocumentController {
         }
         
         $this->setup($f3);
+        $fileHash = hash_file("sha256", $fileupload['tmp_name']);
 
         // TODO: Insert send xem here
-        $fileHash = hash_file("sha256", $fileupload['tmp_name']);
         $env = $f3->get('env');
         $receiver = $env['WALLET_DOC_ADDRESS'];
         $amount = 0;
@@ -85,7 +85,7 @@ class DocumentController {
             0, //Put higher fee if you want, otherwise leave it zero so minimum fee will be taken off
             $receiver, //adress where to send
             null,   //mosaics
-            $message, // message
+            $fileHash, // message
             false // secure message
         );
         // And commit transaction to the network
