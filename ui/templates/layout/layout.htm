@@ -98,6 +98,12 @@
 							<span>Document Management</span>
 						</h6>
 						<ul class="nav flex-column mb-2">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{@BASE}}/documents/codelab">
+                                    <span data-feather="check-circle"></span>
+                                    CodeLab
+                                </a>
+                            </li>
 							<li class="nav-item">
 								<a class="nav-link" href="{{@BASE}}/documents">
 									<span data-feather="file-text"></span>
@@ -166,7 +172,12 @@
 						</div>
 					</check>
 
-					<include href="{{ @content }}" />
+                    <check if="@content">
+                        <include href="{{ @content }}" />
+                    </check>
+                    <check if="@html">
+                        {{ @html | raw }}
+                    </check>
 
 					<footer>
 						<p>&copy; Nem workshop</p>

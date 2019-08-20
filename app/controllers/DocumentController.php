@@ -123,4 +123,16 @@ class DocumentController {
         echo \Template::instance()->render('templates/layout/layout.htm');
     }
 
+    function codelab() {
+        
+        $file = F3::instance()->read('codelab.md');
+        $html = Markdown::instance()->convert($file);
+
+        $f3 = Base::instance();
+        $f3->set('page_title', "Document Management");
+        $f3->set('page_subtitle', "CodeLab");
+        $f3->set('html', $html);
+        echo \Template::instance()->render('templates/layout/layout.htm');
+    }
+
 }

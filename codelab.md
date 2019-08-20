@@ -1,4 +1,5 @@
-# Document Management
+# Document Management - CodeLab
+
 This is a simple document management program to allow you upload the document to server and calculate the fingerprint for verify the correct document.
 
 Here you need to add feature to allow store the fingerprint to blockchain server. So that, other people cannot change the fingerprint from the database.
@@ -6,7 +7,7 @@ Here you need to add feature to allow store the fingerprint to blockchain server
 Before you start the codelab, please make sure you have copied ```/app/db/blank.sqlite``` to ```/app/db/database.sqlite```.
 
 
-## Send Xem during upload document
+## Send XEM during upload document
 1. Open ```app/controllers/DocumentController.php```
 2. For ```// TODO: require nem-php```
 ```php
